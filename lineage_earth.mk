@@ -1,3 +1,8 @@
+
+￼
+￼
+￼
+￼
 #
 # Copyright (C) 2023 The LineageOS Project
 #
@@ -31,3 +36,4 @@ MATRIXX_MAINTAINER := devbx
 MATRIXX_CHIPSET := MT6768
 MATRIXX_BATTERY := 5000mAh
 MATRIXX_DISPLAY := 720x1650
+WITH_GMS := true
