@@ -11,10 +11,10 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit from device makefile.
 $(call inherit-product, device/xiaomi/earth/device.mk)
 
-# Inherit some common LineageOS stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+# Inherit some common ProjectEverest stuff.
+$(call inherit-product, vendor/everest/config/common_full_phone.mk)
 
-PRODUCT_NAME := lineage_earth
+PRODUCT_NAME := everest_earth
 PRODUCT_DEVICE := earth
 PRODUCT_MANUFACTURER := Xiaomi
 PRODUCT_BRAND := Redmi
@@ -27,5 +27,9 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
 
 BUILD_FINGERPRINT := Redmi/earth_global/earth:14/UP1A.231005.007/V816.0.2.0.UCVMIXM:user/release-keys
 
-SAKURA_MAINTAINER := DevBX
-SAKURA_BUILD_TYPE := gapps
+EVEREST_BUILD_TYPE := UNOFFICIAL
+EVEREST_MAINTAINER := Pang YS
+TARGET_SUPPORTS_BLUR := false
+WITH_GAPPS := true
+TARGET_HAS_UDFPS := false
+TARGET_INCLUDE_PIXEL_LAUNCHER := true
