@@ -14,6 +14,8 @@ $(call inherit-product, device/xiaomi/earth/device.mk)
 # Inherit some common ProjectEverest stuff.
 $(call inherit-product, vendor/everest/config/common_full_phone.mk)
 
+TARGET_BOOT_ANIMATION_RES := 720
+
 PRODUCT_NAME := everest_earth
 PRODUCT_DEVICE := earth
 PRODUCT_MANUFACTURER := Xiaomi
