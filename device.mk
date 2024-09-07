@@ -35,9 +35,9 @@ PRODUCT_PACKAGES_DEBUG += \
 # Dynamic Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
-# MTK PlPath Utils
 PRODUCT_PACKAGES += \
-    mtk_plpath_utils.recovery
+    create_pl_dev \
+    create_pl_dev.recovery
 
 PRODUCT_PACKAGES := \
     bootctrl.mt6768 \
