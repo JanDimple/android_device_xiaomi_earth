@@ -16,10 +16,13 @@ AB_OTA_PARTITIONS += \
     system \
     system_ext \
     vendor \
+    vendor_dlkm \
     product \
     boot \
     vbmeta_vendor \
-    vbmeta_system
+    vbmeta_system \
+    odm \
+    odm_dlkm
 
 BOARD_USES_RECOVERY_AS_BOOT := true
 
@@ -42,7 +45,7 @@ TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a53
 DEXPREOPT_GENERATE_APEX_IMAGE := true
 
 # Bootloader
-TARGET_BOOTLOADER_BOARD_NAME := earth
+TARGET_BOOTLOADER_BOARD_NAME := mt6768
 TARGET_NO_BOOTLOADER := true
 
 # Display
@@ -73,9 +76,13 @@ BOARD_MKBOOTIMG_ARGS += --dtb $(TARGET_PREBUILT_DTB)
 BOARD_INCLUDE_DTB_IN_BOOTIMG := 
 endif
 
+# Properties
+TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
+
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 131072 # (BOARD_KERNEL_PAGESIZE * 64)
 BOARD_BOOTIMAGE_PARTITION_SIZE := 67108864
+BOARD_USES_METADATA_PARTITION := true
 BOARD_HAS_LARGE_FILESYSTEM := true
 BOARD_SYSTEMIMAGE_PARTITION_TYPE := ext4
 BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := ext4
@@ -125,7 +132,6 @@ PLATFORM_VERSION_LAST_STABLE := $(PLATFORM_VERSION)
 
 # System as root
 BOARD_SUPPRESS_SECURE_ERASE := true
-BOARD_BUILD_SYSTEM_ROOT_IMAGE := false
 
 # Additional binaries & libraries needed for recovery
 TARGET_RECOVERY_DEVICE_MODULES += \
@@ -164,10 +170,10 @@ TW_USB_STORAGE := true
 
 # DEVICE
 TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
-TW_MAX_BRIGHTNESS := 500
-TW_DEFAULT_BRIGHTNESS := 200
+TW_DEFAULT_BRIGHTNESS := 600
 TW_HAS_NO_RECOVERY_PARTITION := true
 TW_EXCLUDE_APEX := true
+TARGET_USE_CUSTOM_LUN_FILE_PATH := /config/usb_gadget/g1/functions/mass_storage.usb0/lun.%d/file
 
 # Version
 TW_DEVICE_VERSION := Pang
