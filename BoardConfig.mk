@@ -16,13 +16,10 @@ AB_OTA_PARTITIONS += \
     system \
     system_ext \
     vendor \
-    vendor_dlkm \
     product \
     boot \
     vbmeta_vendor \
-    vbmeta_system \
-    odm \
-    odm_dlkm
+    vbmeta_system
 
 BOARD_USES_RECOVERY_AS_BOOT := true
 
@@ -54,7 +51,8 @@ TARGET_SCREEN_DENSITY := 320
 # Kernel
 BOARD_BOOTIMG_HEADER_VERSION := 2
 BOARD_KERNEL_BASE := 0x40078000
-BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2 buildvariant=user
+BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2
+BOARD_KERNEL_CMDLINE += androidboot.force_normal_boot=1
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_RAMDISK_OFFSET := 0x07c08000
 BOARD_KERNEL_TAGS_OFFSET := 0x0bc08000
@@ -122,7 +120,8 @@ TARGET_OTA_ASSERT_DEVICE := earth
 # Hack: prevent anti rollback
 PLATFORM_SECURITY_PATCH := 2099-12-31
 VENDOR_SECURITY_PATCH := 2099-12-31
-PLATFORM_VERSION := 99
+PLATFORM_VERSION := 99.87.36
+PLATFORM_VERSION_LAST_STABLE := $(PLATFORM_VERSION)
 
 # System as root
 BOARD_SUPPRESS_SECURE_ERASE := true
@@ -152,15 +151,16 @@ TW_INPUT_BLACKLIST := "hbtp_vm"
 TW_USE_TOOLBOX := true
 TW_INCLUDE_REPACKTOOLS := true
 TW_NO_REBOOT_RECOVERY := false
-TW_DEVICE_VERSION := Build by Pang
 TARGET_USES_MKE2FS := true
 BOARD_HAS_NO_SELECT_BUTTON := true
 TW_INCLUDE_FASTBOOTD := true
-TW_Y_OFFSET := 60
-TW_H_OFFSET := -60
 TW_INTERNAL_STORAGE_PATH := "/data/media/0"
 TW_EXCLUDE_ENCRYPTED_BACKUPS := false
 TW_HAS_RECOVERY_PARTITION := false
+RECOVERY_SDCARD_ON_DATA := true
+
+# OTG
+TW_USB_STORAGE := true
 
 # DEVICE
 TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
@@ -168,3 +168,6 @@ TW_MAX_BRIGHTNESS := 500
 TW_DEFAULT_BRIGHTNESS := 200
 TW_HAS_NO_RECOVERY_PARTITION := true
 TW_EXCLUDE_APEX := true
+
+# Version
+TW_DEVICE_VERSION := Pang
