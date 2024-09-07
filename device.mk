@@ -48,9 +48,13 @@ PRODUCT_PACKAGES += \
     cppreopts.sh \
     update_engine \
     update_verifier \
-    update_engine_sideload \
-    bootctrl.mt6768 \
-    bootctrl.mt6768.recovery
+    update_engine_sideload 
+
+# VNDK
+PRODUCT_TARGET_VNDK_VERSION := 31
+
+# API
+PRODUCT_SHIPPING_API_LEVEL := 31
 
 # fastbootd
 PRODUCT_PACKAGES += \
