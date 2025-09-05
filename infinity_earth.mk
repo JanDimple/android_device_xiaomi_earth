@@ -12,9 +12,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, device/xiaomi/earth/device.mk)
 
 # Inherit some common LineageOS stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+$(call inherit-product, vendor/infinity/config/common_full_phone.mk)
 
-PRODUCT_NAME := lineage_earth
+PRODUCT_NAME := infinity_earth
 PRODUCT_DEVICE := earth
 PRODUCT_MANUFACTURER := Xiaomi
 PRODUCT_BRAND := Redmi
@@ -24,6 +24,18 @@ PRODUCT_SYSTEM_NAME := earth_global
 PRODUCT_SYSTEM_DEVICE := earth
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
+
+# Whether you are compiling being an OFFICIAL Maintainer:
+INFINITY_BUILD_TYPE := UNOFFICIAL
+
+# Maintainer Name
+INFINITY_MAINTAINER := VannXvR.
+
+# Whether the device supports Fingerprint On Display
+TARGET_HAS_UDFPS := false
+
+# Whether Including Google Apps
+WITH_GAPPS := false
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
     BuildDesc="earth-user 14 UP1A.230105.007 V816.0.7.0.UCVMIXM release-keys" \
