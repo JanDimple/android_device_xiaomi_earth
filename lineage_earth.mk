@@ -32,3 +32,20 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     SystemName=$(PRODUCT_SYSTEM_NAME) \
     ProductModel=$(PRODUCT_SYSTEM_DEVICE) \
     DeviceProduct=$(PRODUCT_SYSTEM_NAME)
+
+# To include Gapps 
+WITH_GMS := true
+
+# To Build Google(Dailer, Message, Phone) and BCR
+WITH_GMS_COMMS_SUITE := true
+
+# To Add cinematic wallpaer support (only supported in gapps build not in vanilla remove this flag for vanilla builds)
+TARGET_SUPPORTS_WALLEFFECT := true
+
+#Some more GMS Flag
+TARGET_SUPPORTS_GOOGLE_RECORDER := true
+TARGET_INCLUDE_STOCK_ARCORE := true
+TARGET_INCLUDE_STOCK_AICORE := true
+
+# To Add Bypass Charging Support (need to be adapted in DT and KT as well)
+BYPASS_CHARGE_SUPPORTED  := true
